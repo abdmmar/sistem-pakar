@@ -1,20 +1,9 @@
+import { questions } from "./data/questions.js";
 import { questionItem } from "./components/questionItem.js";
+import { diagnose } from "./diagnose.js";
 
 const cfPakar = [0.6, 0.2, 0.6, 0.4, 0.4, 0.2, 0.2, 0.8];
 const cfUser = [0, 0, 0, 0, 0, 0, 0, 0];
-const questions = [
-  "Apakah Anda mengalami sakit kepala secara bertahap?",
-  "Apakah Anda mengalami mual dan muntah tanpa sebab?",
-  "Apakah Anda mengalami gangguan ingatan?",
-  "Apakah Anda mengalami kejang?",
-  "Apakah Anda mengalami kesemutan dan mati rasa di lengan atau kaki?",
-  "Apakah Anda mengalami gangguan penglihatan seperti penglihatan kabur?",
-  "Apakah Anda mengalami masalah dengan indra pendengaran?",
-  "Apakah Anda mengalami gangguan keseimbangan, kesulitan saat bergerak?",
-];
-
-let cfCombine = 0;
-let diagnostic = "";
 
 const questionsContainer = document.querySelector(".questions-container");
 
@@ -60,32 +49,7 @@ for (const jawab of pertanyaan) {
 
 const form = document.querySelector("form");
 
-const diagnosa = (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  const cfPerQuestion = [0, 0, 0, 0, 0, 0, 0, 0];
-
-  cfPerQuestion.forEach((cf, index) => {
-    cf = cfPakar[index] * cfUser[index];
-    index === 0
-      ? (cfCombine = cfCombine + cf)
-      : (cfCombine = cfCombine + cf * (1 - cfCombine));
-  });
-
-  cfCombine = (Math.round(cfCombine * 10000) * 100) / 10000;
-
-  if (cfCombine >= 0 && cfCombine <= 50) {
-    diagnostic = "KEMUNGKINAN yang KECIL";
-  } else if (cfCombine > 50 && cfCombine <= 79) {
-    diagnostic = "KEMUNGKINAN";
-  } else if (cfCombine > 79 && cfCombine <= 99) {
-    diagnostic = "KEMUNGKINAN YANG BESAR";
-  } else {
-    diagnostic = "SANGAT YAKIN";
-  }
-
-  console.log(cfCombine);
-  console.log(diagnostic);
-};
-
-form.addEventListener("submit", diagnosa);
+  diagnose(cfUser, cfPakar);
+});

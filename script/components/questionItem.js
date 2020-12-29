@@ -32,7 +32,6 @@ const questionItem = (question, index) => {
     );
 
     section.appendChild(div);
-    // section.appendChild(label);
   }
 
   return section;
