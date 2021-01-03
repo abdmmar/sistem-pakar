@@ -1,11 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import "./style/info.css";
 
 html {
   font-family: "Inter", sans-serif;
 }
 
 body {
-  background-color: #f6f6f6;
+  background-color: #fbfbfb;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #161616;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav ul li a {
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin-right: 20px;
+}
+
+nav ul li a:hover {
+  background-color: #dfdfdf;
 }
 
 .container {
