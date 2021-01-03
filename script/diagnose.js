@@ -4,6 +4,12 @@ const warning = document.querySelector(".warning");
 
 let cfCombine = 0;
 let diagnostic = "";
+const redBg = "#fff3cd";
+const redBorder = "#ffeeba";
+const redColor = "#856404";
+const greenBg = "#f8d7da";
+const greenBorder = "#f5c6cb";
+const greenColor = "#721c24";
 
 function diagnose(cfUser, cfPakar) {
   let cfPerQuestion = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -23,9 +29,6 @@ function diagnose(cfUser, cfPakar) {
     setBannerColor(warning, "#cce5ff", "#b8daff", "#004085");
   } else if (cfCombine > 50 && cfCombine <= 79) {
     diagnostic = "KEMUNGKINAN";
-    const redBg = "#fff3cd";
-    const redBorder = "#ffeeba";
-    const redColor = "#856404";
     setBannerColor(result, redBg, redBorder, redColor);
     setBannerColor(warning, redBg, redBorder, redColor);
 
@@ -33,9 +36,6 @@ function diagnose(cfUser, cfPakar) {
       "Perlu diperhatikan Anda harus konsultasi kepada dokter Anda untuk pemeriksaan lebih lanjut.";
   } else if (cfCombine > 79 && cfCombine <= 99) {
     diagnostic = "KEMUNGKINAN BESAR";
-    const greenBg = "#f8d7da";
-    const greenBorder = "#f5c6cb";
-    const greenColor = "#721c24";
     setBannerColor(result, greenBg, greenBorder, greenColor);
     setBannerColor(warning, greenBg, greenBorder, greenColor);
 
@@ -43,6 +43,8 @@ function diagnose(cfUser, cfPakar) {
       "Segeralah periksakan kesehatan Anda ke dokter agar Anda mendapatkan penanganan medis secepat mungkin.";
   } else {
     diagnostic = "SANGAT YAKIN";
+    setBannerColor(result, redBg, redBorder, redColor);
+    setBannerColor(warning, redBg, redBorder, redColor);
   }
 
   resultContainer.scrollIntoView();
