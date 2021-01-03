@@ -51,7 +51,7 @@ function diagnose(cfUser, cfPakar) {
   result.innerHTML = `
   <h3>Diagnosa Anda</h3>
   Dari gejala-gejala yang Anda rasakan, 
-  sistem mendiagnosa Anda memiliki <strong>${diagnostic}</strong> 
+  sistem mendiagnosis Anda memiliki <strong>${diagnostic}</strong> 
   terserang penyakit Tumor Otak dengan persentase <strong>${cfCombine}%.</strong>`;
   cfPerQuestion = [0, 0, 0, 0, 0, 0, 0, 0];
   cfCombine = 0;
