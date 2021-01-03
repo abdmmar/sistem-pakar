@@ -49,7 +49,7 @@ function diagnose(cfUser, cfPakar) {
   result.classList.toggle("disable");
   warning.classList.toggle("disable");
   result.innerHTML = `
-  <h3>Diagnosa Anda</h3>
+  <h3>Hasil Diagnosis Anda</h3>
   Dari gejala-gejala yang Anda rasakan, 
   sistem mendiagnosis Anda memiliki <strong>${diagnostic}</strong> 
   terserang penyakit Tumor Otak dengan persentase <strong>${cfCombine}%.</strong>`;
